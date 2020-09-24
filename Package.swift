@@ -21,7 +21,8 @@ let package = Package(
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
-        .package(url: "https://github.com/SwiftRex/SwiftRex.git", from: "0.7.0")
+        .package(url: "https://github.com/SwiftRex/SwiftRex.git", from: "0.7.0"),
+        .package(name: "SpecLeaks", url: "https://github.com/leandromperez/specleaks.git", .branch("master"))
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -31,6 +32,6 @@ let package = Package(
             dependencies: [.product(name: "CombineRex", package: "SwiftRex")]),
         .testTarget(
             name: "CoreLocationMiddlewareTests",
-            dependencies: ["CoreLocationMiddleware"]),
+            dependencies: ["CoreLocationMiddleware", "SpecLeaks"]),
     ]
 )
